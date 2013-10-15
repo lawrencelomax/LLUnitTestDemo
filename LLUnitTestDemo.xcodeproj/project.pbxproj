@@ -22,6 +22,8 @@
 		2170D3FE17FC391B003E4157 /* LLApiClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 2170D3FD17FC391B003E4157 /* LLApiClientSpec.m */; };
 		2170D40117FC3A21003E4157 /* LLApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2170D40017FC3A21003E4157 /* LLApiClient.m */; };
 		2170D40317FC4088003E4157 /* cat_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 2170D40217FC4088003E4157 /* cat_list.json */; };
+		21818D5C180D55EB00D7CCCA /* LLCatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21818D5B180D55EB00D7CCCA /* LLCatController.m */; };
+		21818D5E180D62AB00D7CCCA /* LLCatControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 21818D5D180D62AB00D7CCCA /* LLCatControllerSpec.m */; };
 		21E31DE2180D483200B10C9C /* LLViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E31DE1180D483200B10C9C /* LLViewControllerSpec.m */; };
 		21FD85E7180C039D008819CA /* LLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21FD85E6180C039D008819CA /* LLViewController.m */; };
 		21FD85E9180C03C0008819CA /* LLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21FD85E8180C03C0008819CA /* LLViewController.xib */; };
@@ -60,6 +62,9 @@
 		2170D3FF17FC3A21003E4157 /* LLApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLApiClient.h; sourceTree = "<group>"; };
 		2170D40017FC3A21003E4157 /* LLApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLApiClient.m; sourceTree = "<group>"; };
 		2170D40217FC4088003E4157 /* cat_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cat_list.json; sourceTree = "<group>"; };
+		21818D5A180D55EB00D7CCCA /* LLCatController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCatController.h; sourceTree = "<group>"; };
+		21818D5B180D55EB00D7CCCA /* LLCatController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCatController.m; sourceTree = "<group>"; };
+		21818D5D180D62AB00D7CCCA /* LLCatControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCatControllerSpec.m; sourceTree = "<group>"; };
 		21E31DE1180D483200B10C9C /* LLViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLViewControllerSpec.m; sourceTree = "<group>"; };
 		21FD85E5180C039D008819CA /* LLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLViewController.h; sourceTree = "<group>"; };
 		21FD85E6180C039D008819CA /* LLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLViewController.m; sourceTree = "<group>"; };
@@ -139,6 +144,8 @@
 				2170D40017FC3A21003E4157 /* LLApiClient.m */,
 				2170D3C617FC1230003E4157 /* LLAppDelegate.h */,
 				2170D3C717FC1230003E4157 /* LLAppDelegate.m */,
+				21818D5A180D55EB00D7CCCA /* LLCatController.h */,
+				21818D5B180D55EB00D7CCCA /* LLCatController.m */,
 				21FD85E5180C039D008819CA /* LLViewController.h */,
 				21FD85E6180C039D008819CA /* LLViewController.m */,
 				21FD85E8180C03C0008819CA /* LLViewController.xib */,
@@ -164,6 +171,7 @@
 			children = (
 				2170D3F017FC1305003E4157 /* Supporting Files */,
 				2170D3FD17FC391B003E4157 /* LLApiClientSpec.m */,
+				21818D5D180D62AB00D7CCCA /* LLCatControllerSpec.m */,
 				21E31DE1180D483200B10C9C /* LLViewControllerSpec.m */,
 			);
 			path = LLUnitTestDemoTests;
@@ -345,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21FD85E7180C039D008819CA /* LLViewController.m in Sources */,
+				21818D5C180D55EB00D7CCCA /* LLCatController.m in Sources */,
 				2170D40117FC3A21003E4157 /* LLApiClient.m in Sources */,
 				2170D3C817FC1230003E4157 /* LLAppDelegate.m in Sources */,
 				2170D3C417FC1230003E4157 /* main.m in Sources */,
@@ -356,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2170D3FE17FC391B003E4157 /* LLApiClientSpec.m in Sources */,
+				21818D5E180D62AB00D7CCCA /* LLCatControllerSpec.m in Sources */,
 				21E31DE2180D483200B10C9C /* LLViewControllerSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

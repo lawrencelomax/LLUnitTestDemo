@@ -10,51 +10,50 @@
 SpecBegin(LLViewControllerSpec)
 
 describe(@"the view controller", ^{
-	__block LLViewController *viewController;
-	
-	beforeEach(^{
-		viewController = [[LLViewController alloc] init];
-		[viewController view];
+	describe(@"configuring views", ^{
+		it(@"should configure the cat view",^{
+			UIImageView *imageView = [[UIImageView alloc] init];
+			OCMockObject *mockImageView = [OCMockObject partialMockForObject:imageView];
+			imageView = (UIImageView *) mockImageView;
+			UILabel *label = [[UILabel alloc] init];
+			
+			[[mockImageView expect] setImageWithURL:[NSURL URLWithString:@"http://yo.gif"]];
+			
+			[LLViewController configureLabel:label imageView:imageView cat:@{ @"name" : @"foo", @"image_url" : @"http://yo.gif" }];
+			
+			EXP_expect(label.text).to.equal(@"foo");
+			[mockImageView verify];
+		});
 	});
 	
-	it(@"should configure with the second cat", ^{
-		OCMockObject *mockImageView = [OCMockObject partialMockForObject:viewController.imageView];
-		viewController.imageView = (UIImageView *)mockImageView;
-		[[mockImageView expect] setImageWithURL:[OCMArg isNotNil]];
-		
-		[[LLApiClient sharedClient] firstCat];
-		[viewController nextButtonPressed:viewController.nextButton];
-		
-		EXP_expect(viewController.catNameLabel.text).to.equal(@"long");
-		[mockImageView verify];
-	});
-	
-	it(@"should configure with the third cat", ^{
-		[[LLApiClient sharedClient] firstCat];
-		[viewController nextButtonPressed:viewController.nextButton];
-		
-		OCMockObject *mockImageView = [OCMockObject partialMockForObject:viewController.imageView];
-		viewController.imageView = (UIImageView *)mockImageView;
-		[[mockImageView expect] setImageWithURL:[OCMArg isNotNil]];
-		
-		[viewController nextButtonPressed:viewController.nextButton];
+	describe(@"next/previous", ^{
+		__block LLViewController *viewController;
+		__block OCMockObject *apiClientMock;
+				
+		beforeEach(^{
+			viewController = [[LLViewController alloc] init];
+			apiClientMock = [OCMockObject mockForClass:LLApiClient.class];
+            [[[[apiClientMock stub] classMethod] andReturn:apiClientMock] sharedClient];
 
-		EXP_expect(viewController.catNameLabel.text).to.equal(@"bullet");
-		[mockImageView verify];
-	});
-	
-	it(@"should configure with the first cat", ^{
-		[[LLApiClient sharedClient] firstCat];
-		[viewController nextButtonPressed:viewController.nextButton];
+			LLCatController *catController = [LLCatController catControllerWithArray:@[@{@"name" : @"0"}, @{@"name" : @"1"}, @{@"name" : @"2"}]];
+			[[[apiClientMock stub] andReturn:catController] catControllerWithUpdates:[OCMArg any]];
+			
+			[viewController view];
+		});
+        
+        afterEach(^{
+            [apiClientMock stopMocking];
+        });
 		
-		OCMockObject *mockImageView = [OCMockObject partialMockForObject:viewController.imageView];
-		viewController.imageView = (UIImageView *)mockImageView;
-		[[mockImageView expect] setImageWithURL:[OCMArg isNotNil]];
-		
-		[viewController previousButtonPressed:viewController.nextButton];
-		
-		EXP_expect(viewController.catNameLabel.text).to.equal(@"grumpy");
-		[mockImageView verify];
+		it(@"should configure with the first cat", ^{
+			OCMockObject *mockClass = [OCMockObject mockForClass:LLViewController.class];
+			[[[mockClass expect] classMethod] configureLabel:viewController.catNameLabel imageView:viewController.imageView cat:@{@"name" : @"0"}];
+			
+			[viewController nextButtonPressed:viewController.nextButton];
+			
+			[mockClass verify];
+            [mockClass stopMocking];
+		});
 	});
 });
 

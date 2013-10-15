@@ -20,4 +20,6 @@
 - (IBAction) nextButtonPressed:(UIButton *)sender;
 - (IBAction) previousButtonPressed:(UIButton *)sender;
 
++ (void) configureLabel:(UILabel *)label imageView:(UIImageView *)imageView cat:(NSDictionary *)cat;
+
 @end

@@ -10,11 +10,12 @@
 
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
+#import "LLCatController.h"
 #import "LLApiClient.h"
 
 @interface LLViewController ()
 
-@property (nonatomic, strong) LLApiClient *apiClient;
+@property (nonatomic, strong) LLCatController *catController;
 
 @end
 
@@ -23,25 +24,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	self.apiClient = [LLApiClient sharedClient];
-	[LLApiClient getInformationsFromInternets];
+	__weak LLViewController *weakSelf = self;
+	self.catController = [[LLApiClient sharedClient] catControllerWithUpdates:^(LLCatController *catController) {
+		weakSelf.catController = catController;
+	}];
 }
 
 - (IBAction) nextButtonPressed:(UIButton *)sender {
-	NSDictionary *cat = self.apiClient.nextCat;
-
-	self.catNameLabel.text = cat[@"name"];
-	if(cat[@"image_url"]) {
-		[self.imageView setImageWithURL:[NSURL URLWithString:cat[@"image_url"]]];
-	}
+	[LLViewController configureLabel:self.catNameLabel imageView:self.imageView cat:self.catController.nextCat];
 }
 
 - (IBAction) previousButtonPressed:(UIButton *)sender {
-	NSDictionary *cat = self.apiClient.previousCat;
-	
-	self.catNameLabel.text = cat[@"name"];
+	[LLViewController configureLabel:self.catNameLabel imageView:self.imageView cat:self.catController.previousCat];
+}
+
++ (void) configureLabel:(UILabel *)label imageView:(UIImageView *)imageView cat:(NSDictionary *)cat {
+	label.text = cat[@"name"];
 	if(cat[@"image_url"]) {
-		[self.imageView setImageWithURL:[NSURL URLWithString:cat[@"image_url"]]];
+		[imageView setImageWithURL:[NSURL URLWithString:cat[@"image_url"]]];
 	}
 }
 

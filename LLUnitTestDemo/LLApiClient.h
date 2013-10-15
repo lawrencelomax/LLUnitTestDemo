@@ -8,14 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "LLCatController.h"
+
 @interface LLApiClient : NSObject
 
 + (instancetype) sharedClient;
 
-+ (void) getInformationsFromInternets;
-
-- (NSDictionary *) firstCat;
-- (NSDictionary *) nextCat;
-- (NSDictionary *) previousCat;
+- (LLCatController *) catControllerWithUpdates:( void (^)(LLCatController *) )updateBlock;
 
 @end
