@@ -2,7 +2,9 @@ LLUnitTestDemo
 ==============
 A Unit Testing demo for Sydney Cocoaheads Demo
 
-This is a Sample Project from a CocoaHeads Sydney Presentation. It isn't a intended to be an example of best practice of testing and patterns, just as a foil for showing how making an implementation more testable makes the code better independent of the tests themselves. I'll upload the slides shortly.
+This is a Sample Project from a CocoaHeads Sydney Presentation. It isn't a intended to be an example of best practice of testing and patterns, just as a foil for showing how making an implementation more testable makes the code better independent of the tests themselves.
+
+The slides are also available in this repo.
 
 There are two tags ```bad``` and ```good```. Diff the two to see how the code has been refactored, without functionality changing.
 
@@ -19,3 +21,4 @@ There are two tags ```bad``` and ```good```. Diff the two to see how the code ha
 
 [Callbacks as Our Generations' Goto Statement](http://tirania.org/blog/archive/2013/Aug-15.html)
 [TDD vs BDD](http://blog.pluralsight.com/2012/09/11/tdd-vs-bdd/)
+[Rob Rix: Postmodern Programming](https://github.com/robrix/Postmodern-Programming/blob/master/Postmodern%20Programming.md) - The best blogpost I have seen for a very long time
