@@ -1,6 +1,6 @@
 LLUnitTestDemo
 ==============
-A Unit Testing demo for Sydney Cocoaheads Demo
+A Unit Testing demo for Sydney Cocoaheads
 
 This is a Sample Project from a CocoaHeads Sydney Presentation. It isn't a intended to be an example of best practice of testing and patterns, just as a foil for showing how making an implementation more testable makes the code better independent of the tests themselves.
 
